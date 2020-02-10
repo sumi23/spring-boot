@@ -83,7 +83,6 @@ public class CustomerDao {
 
    	}
        public  boolean updateCustomerdao(UpdateCustomerdto uc) throws Exception {
-      		// userId = id;
        	   int result;
       		PreparedStatement pst = null;
       		Connection con = null;
@@ -92,8 +91,8 @@ public class CustomerDao {
       			con = ConnectionUtil.getConnection();
       			String sql = "update customer set age=(?) where id=(?)";
       			pst = con.prepareStatement(sql);
-      			pst.setInt(1, uc.getId());
-      			pst.setInt(2,uc.getAge());
+      			pst.setInt(1, uc.getAge());
+      			pst.setInt(2,uc.getId());
       			result=pst.executeUpdate();
       			System.out.println(result);
       		    if(result>0)
